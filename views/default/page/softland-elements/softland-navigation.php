@@ -25,18 +25,18 @@ $user = elgg_get_logged_in_user_entity();
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="features.html" class="nav-link">Features</a></li>
-                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                <li><a href="<?php echo $site_url;?>" class="nav-link">Home</a></li>
+                <li><a href="features.html" class="nav-link">Services</a></li>
                 
-                <li class="has-children active">
-                  <a href="blog.html" class="nav-link">Blog</a>
-                  <ul class="dropdown">
-                    <li><a href="blog.html" class="nav-link">Blog</a></li>
-                    <li><a href="blog-single.html" class="active nav-link">Blog Sigle</a></li>
-                  </ul>
+                
+                <li>
+                  <a href="<?php echo $site_url;?>posts" class="nav-link">Blog</a>
+                   
                 </li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                
+                <li><a href="pricing.html" class="nav-link">About</a></li>
+                
+                <li><a href="contact.html" class="nav-link">Contact us</a></li>
               </ul>
             </nav>
           </div>
