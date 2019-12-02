@@ -1,4 +1,4 @@
-Aalborg theme
+Softland Theme
 =============
 
 Design
@@ -12,9 +12,9 @@ Layout
 
 Aalborg theme is responsive and adapts the layout to the viewing environment using media queries and fluid images.
 
-Elgg css is extended by views/default/aalborg_theme/css, containing the media queries.
+Elgg css is extended by views/default/softland_theme/css, containing the media queries.
 
 Requirements
 ------------
 
-Place Aalborg theme at or near the bottom of the plugin list.
+Place Softland theme at or near the bottom of the plugin list.
