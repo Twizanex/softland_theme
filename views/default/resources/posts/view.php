@@ -16,7 +16,7 @@ $blog = get_entity($guid);
 elgg_set_page_owner_guid($blog->container_guid);
 $container = $blog->getContainerEntity();
 $site_url = elgg_get_site_url();
-$site = elgg_get_site_entity();
+
 $messages = elgg_view('page/elements/messages', array('object' => $vars['sysmessages']));
 
 $featured = elgg_get_entities(array(
@@ -39,6 +39,30 @@ $logged_user = elgg_get_logged_in_user_entity();
 <html lang="en">
 <head>
      <title><?php echo $blog->title;?></title>
+     
+     <meta property="og:title" content="<?php echo $blog->title;?>">
+     <?php
+      foreach ($featured as $t) {
+                 $file_og = get_entity($t->guid);
+
+                  $image_url = $file_og->getIcon('large');
+                  $icon= elgg_get_inline_url($image_url);
+                  $image_url = elgg_format_url($image_url);
+                  $download_url_image = elgg_get_download_url($file_og);
+                  ?>
+                 
+                 <meta property="og:image" content="<?php echo $icon;?>">
+                 <?php
+//echo $file_og->getIconURL('large');
+                 }
+                 ?>
+
+<meta property="og:description" content="<?php echo $blog->excerpt;?>">
+
+<meta property="og:url" content="<?php echo $site_url;?>posts/view/<?php echo $blog->guid;?>/<?php echo str_replace(' ', '-', $blog->title);?>">
+<meta name="twitter:card" content="<?php echo $blog->excerpt;?>">
+     
+     
  <?php
  echo elgg_view('page/softland-elements/softland-header');
  echo elgg_view('page/elements/head');
@@ -234,67 +258,11 @@ $logged_user = elgg_get_logged_in_user_entity();
               
 
           </div>
-          <div class="col-md-4 sidebar">
-            <div class="sidebar-box">
-              <form action="<?php echo $site_url?>search" class="search-form" method="get">
-                <div class="form-group">
-                  <span class="icon fa fa-search"></span>
-                  <input type="text" name="q"  class="form-control" placeholder="<?php echo elgg_echo('softland:search'); ?>Type a keyword and hit enter">
-                      <input type="hidden" name="search_type" value="all">
-                </div>
-              </form>
-            </div>
-            <div class="sidebar-box">
-              <div class="categories">
-                <h3>Categories</h3>
-                <?php
-                $site_categories = $site->categories;
-                
-                if($site_categories){
-                    
-                    foreach ($site_categories as $s) {
-                        ?>
-                 <li>
-                     <a href="<?php echo $site_url;?>categories/list?category=<?php echo str_replace(' ', '+', $s);?>">
-                     <?php echo $s;?>
-                     </a>
-                 </li>
-                <?php
-                    }
-                }
-                
-                
-                ?>
-                 
-              </div>
-            </div>
-            <div class="sidebar-box">
-                 <center>
-              <img src="<?php echo $user->getIconURL('medium');?>" alt="Image placeholder" class="img-fluid mb-4">
-                 
-              <h3>About The Author</h3>
-              <p>
-                  
-                  <div href="#" class="btn btn-primary btn-sm">
-                      <?php
-                  echo $user->name;
-                  ?>
-                  </div>
-                      </center>
-              </p>
-              <p>
-                  <?php
-                  echo $user->description;
-                  ?>
-              </p>
-              
-            </div>
-
-            <div class="sidebar-box">
-              <h3>Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-            </div>
-          </div>
+            <?php
+      
+      echo elgg_view('page/softland-elements/softland-blog-sidebar');
+      
+      ?>
         </div>
       </div>
     </section>
