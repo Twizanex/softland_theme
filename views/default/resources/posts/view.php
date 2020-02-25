@@ -16,8 +16,8 @@ $blog = get_entity($guid);
 elgg_set_page_owner_guid($blog->container_guid);
 $container = $blog->getContainerEntity();
 $site_url = elgg_get_site_url();
-//$site = elgg_get_site_entity();
-
+$site = elgg_get_site_entity();
+$messages = elgg_view('page/elements/messages', array('object' => $vars['sysmessages']));
 
 $featured = elgg_get_entities(array(
 	'type' => 'object',
@@ -30,7 +30,7 @@ $featured = elgg_get_entities(array(
 	'preload_containers' => true,
 	'distinct' => false,
 ));
-$user = elgg_get_logged_in_user_entity();
+$user = elgg_get_page_owner_entity();
 ?>
 
 <html lang="en">
@@ -42,7 +42,11 @@ $user = elgg_get_logged_in_user_entity();
  ?>
    
 </head>
-
+<div class="elgg-page-messages">
+		<?php
+                echo $messages;
+                ?>
+	</div>
 
 <body>
     
@@ -147,7 +151,9 @@ $user = elgg_get_logged_in_user_entity();
                 <?php 
                             echo $blog->description; 
                             
-                            echo elgg_view('output/tags', array('tags' => $vars['entity']->tags));
+                            //echo elgg_view('output/categories', $vars);
+                            
+                          //  echo print_r($categories);
 
                       ?>
                 
@@ -156,7 +162,43 @@ $user = elgg_get_logged_in_user_entity();
             
 
             <div class="pt-5">
-              <p>Categories:  <a href="#">Design</a>, <a href="#">Events</a>  Tags: <a href="#">#html</a>, <a href="#">#trends</a></p>
+              <p>Categories:  
+                  
+                  <?php 
+                  $categories = $blog->universal_categories;
+                  if($categories != null)
+                  {
+                      foreach ($categories as $c) {
+                          ?>
+                  <a href="<?php echo $site_url;?>categories/list?category=<?php echo str_replace(' ', '+', $c);?>">
+                      <?php 
+                      echo $c;
+                      ?></a>,
+                  <?php
+                          
+                         
+                      }
+                  }
+                  ?>
+                  </p>
+                <p>
+                  Tags: 
+              <?php 
+                  $tags = $blog->tags;
+                  
+                  if($tags!= null)
+                  {
+                      foreach ($tags as $t) {
+                       ?>
+                  <a href="<?php echo $site_url;?>search?q=<?php echo str_replace(' ', '+', $t);?>&search_type=tags">
+                      <?php 
+                      echo $t;
+                      ?></a>,
+                  <?php
+                      }
+                  }
+                  ?>
+              </p>
             </div>
 
 
@@ -175,17 +217,47 @@ $user = elgg_get_logged_in_user_entity();
             <div class="sidebar-box">
               <div class="categories">
                 <h3>Categories</h3>
-                <li><a href="#">Dog <span>(12)</span></a></li>
-                <li><a href="#">Dog Food <span>(22)</span></a></li>
-                <li><a href="#">Vetenirarian <span>(37)</span></a></li>
-                <li><a href="#">Events<span>(42)</span></a></li>
+                <?php
+                $site_categories = $site->categories;
+                
+                if($site_categories){
+                    
+                    foreach ($site_categories as $s) {
+                        ?>
+                 <li>
+                     <a href="<?php echo $site_url;?>categories/list?category=<?php echo str_replace(' ', '+', $s);?>">
+                     <?php echo $s;?>
+                     </a>
+                 </li>
+                <?php
+                    }
+                }
+                
+                
+                ?>
+                 
               </div>
             </div>
             <div class="sidebar-box">
-              <img src="img/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
+                 <center>
+              <img src="<?php echo $user->getIconURL('medium');?>" alt="Image placeholder" class="img-fluid mb-4">
+                 
               <h3>About The Author</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-              <p><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
+              <p>
+                  
+                  <div href="#" class="btn btn-primary btn-sm">
+                      <?php
+                  echo $user->name;
+                  ?>
+                  </div>
+                      </center>
+              </p>
+              <p>
+                  <?php
+                  echo $user->description;
+                  ?>
+              </p>
+              
             </div>
 
             <div class="sidebar-box">

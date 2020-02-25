@@ -22,7 +22,15 @@ function softland_theme_init() {
 	// non-members do not get visible links to RSS feeds
 	if (!elgg_is_logged_in()) {
 		elgg_unregister_plugin_hook_handler('output:before', 'layout', 'elgg_views_add_rss_link');
+                elgg_unregister_page_handler('activity');	
+                elgg_unregister_page_handler('file');
+                elgg_unregister_page_handler('members');
+                elgg_unregister_page_handler('profile');
+
+
 	}
+        
+     //   elgg_register_plugin_hook_handler('public_pages', 'walled_garden', 'your_public_pages');
 
 }
 
@@ -114,3 +122,14 @@ function softland_theme_setup_head($hook, $type, $data) {
 
 	return $data;
 }
+/*
+function your_public_pages($hook, $type, $pages) {
+    $pages[] = 'posts/view/.*';  // wildcard .* can be used to make all pages public that match in the URL part
+    $pages[] = 'posts/.*';
+    $pages[] = '/.*';
+   // $pages[] = 'pages/.*';
+   // $pages[] = 'thewire/.*';
+   // $pages[] = 'other_pagehandler/other_segment';
+   
+    return $pages;
+}*/
