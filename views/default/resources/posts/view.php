@@ -25,6 +25,7 @@ $featured = elgg_get_entities(array(
         'category' => 'featured',
         'owner_guid' => $blog->guid,
 	//'full_view' => false,
+        'limit' => 1,
 	'no_results' => elgg_echo("file:none"),
 	'preload_owners' => true,
 	'preload_containers' => true,
@@ -133,7 +134,9 @@ $user = elgg_get_page_owner_entity();
                   $download_url = elgg_get_download_url($file);
                   ?>
                   <figure>
-                    <img src="<?php echo $download_url;?>" alt="Free Website Template by Free-Template.co" class="img-fluid">
+                      <a href="<?php echo $download_url;?>" class="elgg-lightbox-photo">
+                    <img src="<?php echo $download_url;?>" alt="<?php echo $file;?>" class="img-fluid">
+                        </a>
                  </figure>
                  <?php
 //echo $download_url;
