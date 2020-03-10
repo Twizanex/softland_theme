@@ -181,6 +181,16 @@ $user = elgg_get_page_owner_entity();
                           
                          
                       }
+                      
+                      if(is_array($categories) == false)
+                      {
+                       ?> 
+                      <a href="<?php echo $site_url;?>categories/list?category=<?php echo str_replace(' ', '+', $categories);?>">
+                               <?php 
+                      echo $categories;
+                      ?></a>,
+                               <?php  
+                      }
                   }
                   ?>
                   </p>
@@ -199,6 +209,18 @@ $user = elgg_get_page_owner_entity();
                       ?></a>,
                   <?php
                       }
+                      
+                      if(is_array($tags) == false)
+                      {
+                          ?>
+                  <a href="<?php echo $site_url;?>search?q=<?php echo str_replace(' ', '+', $tags);?>&search_type=tags">
+                      <?php 
+                      echo $tags;
+                      ?></a>,
+                  <?php
+                          
+                      }
+                      
                   }
                   ?>
               </p>

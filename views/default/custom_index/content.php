@@ -6,6 +6,11 @@ if (elgg_is_logged_in()){
     forward ('activity');
 }
 
+
+$banner_title = elgg_get_plugin_setting('banner_title','softland_theme');
+$banner_subtitle = elgg_get_plugin_setting('banner_subtitle', 'softland_theme');
+$learn_more_link = elgg_get_plugin_setting('learn_more_link', 'softland_theme');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,11 +71,19 @@ if (elgg_is_logged_in()){
             <div class="col-12 hero-text-image">
               <div class="row">
                 <div class="col-lg-7 text-center text-lg-left">
-                  <h1 data-aos="fade-right">Promote Your App with SoftLand</h1>
-                  <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit.</p>
-                  <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="#"
-                      class="btn btn-outline-white">Get started</a></p>
+                  <h1 data-aos="fade-right">
+                      <?php
+                      echo $banner_title;
+                      ?>
+                  </h1>
+                  <p class="mb-5" data-aos="fade-right" data-aos-delay="100">
+                  <?php
+                  echo $banner_subtitle;
+                  ?>
+                  </p>
+                  <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500">
+                      <a href="<?php echo $learn_more_link;?>"
+                      class="btn btn-outline-white">Learn more</a></p>
                 </div>
                 <div class="col-lg-5 iphone-wrap">
                   <img src="<?php echo $site_url;?>mod/softland_theme/vendor/img/phone_1.png" alt="Image" class="phone-1" data-aos="fade-right">

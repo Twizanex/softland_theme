@@ -17,6 +17,7 @@ $content = elgg_get_entities([
     
 	//'pagination' => true,
 	'distinct' => false,
+        
 ]);
 ?>
 
@@ -114,9 +115,11 @@ $content = elgg_get_entities([
                   
                   <a href="<?php echo $site_url;?>posts/view/<?php echo $b->guid;?>/<?php echo str_replace(' ', '-', $b->title);?>" class="d-block mb-4">
                     <?php  
-                   
+                   $limit = 0;
                     //  
                    foreach ($featured as $f) {
+                       if($limit == 0)
+                       {
                  $file = get_entity($f->guid);
 
                   $image_url = $file->getIconURL('large');
@@ -128,6 +131,8 @@ $content = elgg_get_entities([
                  </figure>
                  <?php
 //echo $download_url;
+                       }
+                       $limit++;
                  }
                  ?>
                   
