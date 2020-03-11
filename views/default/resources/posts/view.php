@@ -32,6 +32,8 @@ $featured = elgg_get_entities(array(
 	'distinct' => false,
 ));
 $user = elgg_get_page_owner_entity();
+
+$logged_user = elgg_get_logged_in_user_entity();
 ?>
 
 <html lang="en">
@@ -41,7 +43,7 @@ $user = elgg_get_page_owner_entity();
  echo elgg_view('page/softland-elements/softland-header');
  echo elgg_view('page/elements/head');
  ?>
-   
+<link href="<?php echo $site_url?>mod/softland_theme/views/default/elements/softland/blog.css" rel="stylesheet">
 </head>
 <div class="elgg-page-messages">
 		<?php
@@ -69,6 +71,7 @@ $user = elgg_get_page_owner_entity();
       echo elgg_view('page/softland-elements/softland-navigation');
       
       ?>
+        
     </header>
 
 
@@ -113,8 +116,6 @@ $user = elgg_get_page_owner_entity();
         
       </div>
 
-      
-
       <section class="site-section">
       <div class="container">
         <div class="row">
@@ -124,8 +125,7 @@ $user = elgg_get_page_owner_entity();
               <div class="col-md-12">
                 
                 <?php
-
-//echo     print_r($featured);
+                
                  foreach ($featured as $f) {
                  $file = get_entity($f->guid);
 
@@ -139,30 +139,37 @@ $user = elgg_get_page_owner_entity();
                         </a>
                  </figure>
                  <?php
-//echo $download_url;
+
                  }
+                 
+                 if($logged_user->guid == $user->guid)
+                 {
                  ?>
-                    
-                    
+                     <div style="float:right;">
+                    <p>
+                        <a href="<?php echo $site_url;?>posts/edit/<?php echo $blog->guid?>" class="btn" >
+                            <span class="icofont-edit-alt mr-3" >
+                                
+                            </span>
+                            <?php 
+                                echo elgg_echo('elggpress:edit:post');
+                            ?>
+                        </a>
+                    </p>
+                </div>
+                    <?php
+                 }
+                    ?>
                    
               </div>
                
             </div>
-            
-             
-             
+                                     
                 <?php 
-                            echo $blog->description; 
-                            
-                            //echo elgg_view('output/categories', $vars);
-                            
-                          //  echo print_r($categories);
-
-                      ?>
                 
-             
-
-            
+                    echo $blog_description = preg_replace('/<span[^>]+\>/i', '', $blog->description);
+                          
+                ?>                                         
 
             <div class="pt-5">
               <p>Categories:  
@@ -178,8 +185,7 @@ $user = elgg_get_page_owner_entity();
                       echo $c;
                       ?></a>,
                   <?php
-                          
-                         
+                                                   
                       }
                       
                       if(is_array($categories) == false)
@@ -225,17 +231,16 @@ $user = elgg_get_page_owner_entity();
                   ?>
               </p>
             </div>
-
-
-          
+              
 
           </div>
           <div class="col-md-4 sidebar">
             <div class="sidebar-box">
-              <form action="#" class="search-form">
+              <form action="<?php echo $site_url?>search" class="search-form" method="get">
                 <div class="form-group">
                   <span class="icon fa fa-search"></span>
-                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                  <input type="text" name="q"  class="form-control" placeholder="<?php echo elgg_echo('softland:search'); ?>Type a keyword and hit enter">
+                      <input type="hidden" name="search_type" value="all">
                 </div>
               </form>
             </div>
@@ -295,34 +300,29 @@ $user = elgg_get_page_owner_entity();
     </section>
       
 
-      <div class="site-section cta-section">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-md-6 mr-auto text-center text-md-left mb-5 mb-md-0">
-              <h2>Starts Publishing Your Apps</h2>
-            </div>
-            <div class="col-md-5 text-center text-md-right">
-              <p><a href="#" class="btn"><span class="icofont-brand-apple mr-3"></span>App store</a> <a href="#" class="btn"><span class="icofont-ui-play mr-3"></span>Google play</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
+       <?php
+      
+      echo elgg_view('page/softland-elements/softland-subfooter');
+      
+      ?>
 
 
     </main>
     <?php
       
-      echo elgg_view('page/softland-elements/softland-footer');
+        echo elgg_view('page/softland-elements/softland-footer');
       
-      ?>
+     ?>
   </div> <!-- .site-wrap -->
-    <?php
-      
-      echo elgg_view('page/softland-elements/softland-scripts');
-      
-      ?>
+<?php
+
+    echo elgg_view('page/softland-elements/softland-scripts');
+
+?>
   
- <?php echo elgg_view('page/elements/foot');?>
+ <?php 
+    echo elgg_view('page/elements/foot');
+ ?>
 
   </body>
 </html>

@@ -33,10 +33,5 @@ $site_name = $site->name;
   <!-- Template Main CSS File -->
   <link href="<?php echo $site_url?>mod/softland_theme/vendor/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-    Template Name: SoftLand
-    Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com/
-  ======================================================= -->
+
  
