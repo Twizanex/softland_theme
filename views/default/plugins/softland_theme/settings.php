@@ -10,41 +10,44 @@ $banner_title = $vars['entity']->banner_title;
 $banner_subtitle = $vars['entity']->banner_subtitle;
 
 $learn_more_link = $vars['entity']->learn_more_link;
-  
+
+$features_title = $vars['entity']->features_title;
+
+$f_item_1_title = $vars['entity']->f_item_1_title;
+$f_item_1_desc = $vars['entity']->f_item_1_desc;
+$f_item_1_link = $vars['entity']->f_item_1_link;
+
+
+$f_item_2_title = $vars['entity']->f_item_2_title;
+$f_item_2_desc = $vars['entity']->f_item_2_desc;
+$f_item_2_link = $vars['entity']->f_item_2_link;
+
+
+$f_item_3_title = $vars['entity']->f_item_3_title;
+$f_item_3_desc = $vars['entity']->f_item_3_desc;
+$f_item_3_link = $vars['entity']->f_item_3_link;
+
+
+$service_info_1_title = $vars['entity']->service_info_1_title;
+$service_info_1_desc = $vars['entity']->service_info_1_desc;
+$service_info_1_link = $vars['entity']->service_info_1_link;
+
+$service_info_2_title = $vars['entity']->service_info_2_title;
+$service_info_2_desc = $vars['entity']->service_info_2_desc;
+$service_info_2_link = $vars['entity']->service_info_2_link;
 
 ?>
  <link href="<?php echo $site_url?>mod/softland_theme/views/default/elements/softland/settings.css" rel="stylesheet">
-    <div id="aspect-content" style="padding-left:20px;">
-  <div class="aspect-tab ">
-    <input id="item-18" type="checkbox" class="aspect-input" name="aspect">
-    <label for="item-18" class="aspect-label"></label>
-    <div class="aspect-content">
-        <div class="aspect-info">
-            <div class="chart-pie positive over50">
-                <span class="chart-pie-count">100</span>
-                <div>
-                    <div class="first-fill"></div>
-                    <div class="second-fill" style="transform: rotate(249deg)"></div>
-                </div>
-            </div>
-            <span class="aspect-name"><?php echo elgg_echo('softland:settings:banner'); ?></span>
-        </div>
-        <div class="aspect-stat">
-             
-              
-        </div>
-    </div>
-    <div class="aspect-tab-content">
-        <div class="sentiment-wrapper">
-            <div>
-                <div>
-                     <div class="positive-count opinion-header">
-                         
-                    </div>
-                    <div>
-                        <span>
-                             
-<?php
+ <div class="cards-row">
+     <div class="card" style="width: 97%;">
+	<img src='<?php echo $site_url?>mod/softland_theme/graphics/material-card-long.jpg' class="card-image" />
+	<div class="card-title">
+		<?php echo elgg_echo('softland:settings:banner'); ?>
+	</div>
+	<div class="card-desc">
+		
+            <p>
+                <?php
 	
 echo elgg_view_input('text', [
     'name' => 'params[banner_title]',
@@ -52,23 +55,10 @@ echo elgg_view_input('text', [
     'value' => $banner_title,
 ]);
 ?>
-                        </span>
-                    </div>
-                </div>
-            </div>
-             
-        </div>
-        <div class="sentiment-wrapper">
-            <div>
-                <div>
-                    <div class="positive-count opinion-header">
-                         
-                    </div>
-                    <div>
-                        <span>
-                             
- 
-	
+            </p>
+            
+            <p>
+                	
 <?php
 	
 echo elgg_view_input('text', [
@@ -77,25 +67,10 @@ echo elgg_view_input('text', [
     'value' => $banner_subtitle,
 ]);
 ?>
- 
-                        </span>
-                    </div>
-                </div>
-            </div>
-             
-        </div>
-    <div class="sentiment-wrapper">
-            <div>
-                <div>
-                    <div class="positive-count opinion-header">
-                         
-                    </div>
-                    <div>
-                        <span>
-                             
- 
-	
-<?php
+            </p>
+            
+            <p>
+                <?php
 	
 echo elgg_view_input('text', [
     'name' => 'params[learn_more_link]',
@@ -103,156 +78,255 @@ echo elgg_view_input('text', [
     'value' => $learn_more_link,
 ]);
 ?>
- 
-                        </span>
-                    </div>
-                </div>
-            </div>
-             
-        </div>
-    
-    
-    </div>
-  </div>
-  <div class="aspect-tab ">
-    <input id="item-14" type="checkbox" class="aspect-input" name="aspect">
-    <label for="item-14" class="aspect-label"></label>
-    <div class="aspect-content">
-        <div class="aspect-info">
-            <div class="chart-pie positive over50">
-                <span class="chart-pie-count">58</span>
-                <div>
-                    <div class="first-fill"></div>
-                    <div class="second-fill" style="transform: rotate(209deg)"></div>
-                </div>
-            </div>
-            <span class="aspect-name">Lorem ipsum dolor sit amet</span>
-        </div>
-        <div class="aspect-stat">
-            <div class="all-opinions">
-                <span class="all-opinions-count">22</span>
-                <span>opinion</span>
-            </div>
-            <div>
-                <span class="positive-count">12</span>
-                <span class="neutral-count">5</span>
-                <span class="negative-count">5</span>
-            </div>
-        </div>
-    </div>
-    <div class="aspect-tab-content">
-        <div class="sentiment-wrapper">
-            <div>
-                <div>
-                    <div class="positive-count opinion-header">
-                        <span>positive</span>
-                        <span>12</span>
-                    </div>
-                    <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.</span>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <div class="neutral-count opinion-header">
-                        <span>neutral</span>
-                        <span>5</span>
-                    </div>
-                    <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.</span>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <div class="negative-count opinion-header">
-                        <span>negative</span>
-                        <span>5</span>
-                    </div>
-                    <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-  <div class="aspect-tab ">
-    <input id="item-2" type="checkbox" class="aspect-input" name="aspect">
-    <label for="item-2" class="aspect-label"></label>
-    <div class="aspect-content">
-        <div class="aspect-info">
-            <div class="chart-pie positive">
-                <span class="chart-pie-count">33</span>
-                <div>
-                    <div class="first-fill"></div>
-                    <div class="second-fill" style="transform: rotate(119deg)"></div>
-                </div>
-            </div>
-            <span class="aspect-name">Lorem</span>
-        </div>
-        <div class="aspect-stat">
-            <div class="all-opinions">
-                <span class="all-opinions-count">7</span>
-                <span>opinion</span>
-            </div>
-            <div>
-                <span class="positive-count">3</span>
-                <span class="neutral-count">2</span>
-                <span class="negative-count">2</span>
-            </div>
-        </div>
-    </div>
-    <div class="aspect-tab-content">
-        <div class="sentiment-wrapper">
-            <div>
-                <div>
-                    <div class="positive-count opinion-header">
-                        <span>positive</span>
-                        <span>3</span>
-                    </div>
-                    <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <div class="neutral-count opinion-header">
-                        <span>neutral</span>
-                        <span>2</span>
-                    </div>
-                    <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.</span>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <div class="negative-count opinion-header">
-                        <span>negative</span>
-                        <span>2</span>
-                    </div>
-                    <div>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id congue dolor. Vivamus eleifend vitae nunc sed tincidunt.</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
-<div>
+            </p>
+            
+             <p>
+                <?php
 	
+                echo elgg_view_input('text', [
+                    'name' => 'params[features_title]',
+                    'label' => elgg_echo('softland:features:title'),
+                    'value' => $features_title,
+                ]);
+                ?>
+            </p>
+	</div>
+	<div class="card-actions">
+		
+	</div>
+</div>
+     
+    
+</div>
+ 
+ <div class="cards-row">
+   <div class="card">
+	<img src='<?php echo $site_url?>mod/softland_theme/graphics/material-card-small.jpg' class="card-image" />
+	<div class="card-title">
+		<?php echo elgg_echo('softland:settings:first:features'); ?>
+	</div>
+	<div class="card-desc">
+		
+           
+            
+            <p>
+                <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[f_item_1_title]',
+                    'label' => elgg_echo('softland:features:item1:title'),
+                    'value' => $f_item_1_title,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[f_item_1_desc]',
+                    'label' => elgg_echo('softland:features:item1:desc'),
+                    'value' => $f_item_1_desc,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[f_item_1_link]',
+                    'label' => elgg_echo('softland:features:item1:link'),
+                    'value' => $f_item_1_link,
+                ]);
+                ?>
+                
+            </p>
+            
+     
+     
+	</div>
+	<div class="card-actions">
+		
+	</div>
+</div>
+     
+     <div class="card">
+	<img src='<?php echo $site_url?>mod/softland_theme/graphics/material-card-small.jpg' class="card-image" />
+	<div class="card-title">
+		 <?php echo elgg_echo('softland:settings:second:features'); ?>
+	</div>
+	<div class="card-desc">
+		
+             <p>
+                <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[f_item_2_title]',
+                    'label' => elgg_echo('softland:features:item2:title'),
+                    'value' => $f_item_2_title,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[f_item_2_desc]',
+                    'label' => elgg_echo('softland:features:item2:desc'),
+                    'value' => $f_item_2_desc,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[f_item_2_link]',
+                    'label' => elgg_echo('softland:features:item2:link'),
+                    'value' => $f_item_2_link,
+                ]);
+                ?>
+                
+            </p>
+	</div>
+	<div class="card-actions">
+		
+	</div>
 </div>
 
-<div>
-	 
-
+     <div class="card">
+	<img src='<?php echo $site_url?>mod/softland_theme/graphics/material-card-small.jpg' class="card-image" />
+	<div class="card-title">
+		 <?php echo elgg_echo('softland:settings:third:features'); ?>
+	</div>
+	<div class="card-desc">
+		
+             <p>
+                <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[f_item_3_title]',
+                    'label' => elgg_echo('softland:features:item3:title'),
+                    'value' => $f_item_3_title,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[f_item_3_desc]',
+                    'label' => elgg_echo('softland:features:item3:desc'),
+                    'value' => $f_item_3_desc,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[f_item_3_link]',
+                    'label' => elgg_echo('softland:features:item3:link'),
+                    'value' => $f_item_3_link,
+                ]);
+                ?>
+                
+            </p>
+	</div>
+	<div class="card-actions">
+		
+	</div>
 </div>
 
-<div>
-	 
+</div>
+ 
+ 
+ 
+ <div class="cards-row">
+     <div class="card" style="width: 97%;">
+	<img src='<?php echo $site_url?>mod/softland_theme/graphics/material-card-long.jpg' class="card-image" />
+	<div class="card-title">
+		<?php echo elgg_echo('softland:settings:services'); ?>
+	</div>
+	<div class="card-desc">
+		
+           
+            
+            <p>
+                <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[service_info_1_title]',
+                    'label' => elgg_echo('softland:services:item1:title'),
+                    'value' => $service_info_1_title,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('plaintext', [
+                    'name' => 'params[service_info_1_desc]',
+                    'label' => elgg_echo('softland:services:item1:desc'),
+                    'value' => $service_info_1_desc,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[service_info_1_link]',
+                    'label' => elgg_echo('softland:services:item1:link'),
+                    'value' => $service_info_1_link,
+                ]);
+                ?>
+                
+            </p>
+            
+     
+     
+	</div>
+	<div class="card-actions">
+		
+	</div>
+</div>
+     
+     <div class="card" style="width: 97%;">
+	<img src='<?php echo $site_url?>mod/softland_theme/graphics/material-card-long.jpg' class="card-image" />
+	<div class="card-title">
+		 <?php echo elgg_echo('softland:settings:services'); ?>
+	</div>
+	<div class="card-desc">
+		
+             <p>
+                <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[service_info_2_title]',
+                    'label' => elgg_echo('softland:services:item2:title'),
+                    'value' => $service_info_2_title,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('plaintext', [
+                    'name' => 'params[service_info_2_desc]',
+                    'label' => elgg_echo('softland:services:item2:desc'),
+                    'value' => $service_info_2_desc,
+                ]);
+                ?>
+                
+                 <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[service_info_2_link]',
+                    'label' => elgg_echo('softland:services:item2:link'),
+                    'value' => $service_info_2_link,
+                ]);
+                ?>
+                
+            </p>
+	</div>
+	<div class="card-actions">
+		
+	</div>
+</div>
+
+     
 
 </div>
+ 
+ </br>
