@@ -6,6 +6,16 @@ return array(
         'softland:banner:subtitle' => 'Homepagee subtitle',
         'softland:banner:learn_more_link' => 'Learn more link',
     
+        'softland:header:navigation:home' => 'Home',
+        'softland:header:navigation:blog' => 'Blog',
+        'softland:header:navigation:services' => 'Services',
+        'softland:header:navigation:about' => 'About',
+        'softland:header:navigation:contact' => 'Contact',
+    
+        
+    
+        'softland:header:blogs:all' => 'All blog posts',
+        'softland:header:blogs:description' => 'Useful resources and inspiration for creative programmers',
     
         'softland:settings:first:features' => 'Feature: Item 1',
     

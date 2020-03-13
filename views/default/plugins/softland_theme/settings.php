@@ -36,6 +36,10 @@ $service_info_2_title = $vars['entity']->service_info_2_title;
 $service_info_2_desc = $vars['entity']->service_info_2_desc;
 $service_info_2_link = $vars['entity']->service_info_2_link;
 
+$navigation_services_url = $vars['entity']->navigation_services_url;
+$navigation_about_url = $vars['entity']->navigation_about_url;
+$navigation_contact_url = $vars['entity']->navigation_contact_url;
+
 ?>
  <link href="<?php echo $site_url?>mod/softland_theme/views/default/elements/softland/settings.css" rel="stylesheet">
  <div class="cards-row">
@@ -319,6 +323,56 @@ echo elgg_view_input('text', [
                 ?>
                 
             </p>
+	</div>
+	<div class="card-actions">
+		
+	</div>
+</div>
+     
+      <div class="card" style="width: 97%;">
+	<img src='<?php echo $site_url?>mod/softland_theme/graphics/material-card-long.jpg' class="card-image" />
+	<div class="card-title">
+		 <?php echo elgg_echo('softland:settings:menu'); ?>
+	</div>
+	<div class="card-desc">
+		
+             <p>
+                <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[navigation_services_url]',
+                    'label' => elgg_echo('softland:home:navigation:services'),
+                    'value' => $navigation_services_url,
+                ]);
+                ?>
+               
+            </p>
+            
+            <p>
+                <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[navigation_about_url]',
+                    'label' => elgg_echo('softland:home:navigation:about'),
+                    'value' => $navigation_about_url,
+                ]);
+                ?>
+               
+            </p>
+            
+            <p>
+                <?php
+	
+                echo elgg_view_input('text', [
+                    'name' => 'params[navigation_contact_url]',
+                    'label' => elgg_echo('softland:home:navigation:contact'),
+                    'value' => $navigation_contact_url,
+                ]);
+                ?>
+               
+            </p>
+            
+            
 	</div>
 	<div class="card-actions">
 		

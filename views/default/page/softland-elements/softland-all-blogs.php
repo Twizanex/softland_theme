@@ -77,8 +77,16 @@ $content = elgg_get_entities([
             <div class="col-12">
               <div class="row justify-content-center">
                 <div class="col-md-7 text-center hero-text">
-                  <h1 data-aos="fade-up" data-aos-delay="">Blog Posts</h1>
-                  <p class="mb-5" data-aos="fade-up"  data-aos-delay="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>  
+                  <h1 data-aos="fade-up" data-aos-delay="">
+                    <?php 
+                        echo elgg_echo('softland:header:blogs:all');
+                     ?>
+                  </h1>
+                  <p class="mb-5" data-aos="fade-up"  data-aos-delay="100">
+                      <?php 
+                        echo elgg_echo('softland:header:blogs:description');
+                     ?>
+                  </p>  
                 </div>
               </div>
             </div>

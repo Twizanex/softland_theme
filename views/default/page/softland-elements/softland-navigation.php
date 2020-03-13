@@ -9,6 +9,9 @@ $site = elgg_get_site_entity();
 $site_name = $site->name;
 
 $user = elgg_get_logged_in_user_entity();
+$navigation_services_url = elgg_get_plugin_setting('navigation_services_url', 'softland_theme');
+$navigation_about_url = elgg_get_plugin_setting('navigation_about_url', 'softland_theme');
+$navigation_contact_url = elgg_get_plugin_setting('navigation_contact_url', 'softland_theme');
 ?>
 <?php 
               if (!elgg_is_logged_in())
@@ -25,18 +28,46 @@ $user = elgg_get_logged_in_user_entity();
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="<?php echo $site_url;?>" class="nav-link">Home</a></li>
-                <li><a href="features.html" class="nav-link">Services</a></li>
+                <li>
+                    <a href="<?php echo $site_url;?>" class="nav-link">
+                    <?php 
+                        echo elgg_echo('softland:header:navigation:home');
+                    ?>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo $navigation_services_url;?>" class="nav-link">
+                    <?php 
+                        echo elgg_echo('softland:header:navigation:services');
+                    ?>
+                    </a>
+                </li>
                 
                 
                 <li>
-                  <a href="<?php echo $site_url;?>posts" class="nav-link">Blog</a>
+                  <a href="<?php echo $site_url;?>posts" class="nav-link">
+                  <?php 
+                        echo elgg_echo('softland:header:navigation:blog');
+                  ?>
+                  </a>
                    
                 </li>
                 
-                <li><a href="pricing.html" class="nav-link">About</a></li>
+                <li>
+                    <a href="<?php echo $navigation_about_url;?>" class="nav-link">
+                    <?php 
+                        echo elgg_echo('softland:header:navigation:about');
+                    ?>
+                    </a>
+                </li>
                 
-                <li><a href="contact.html" class="nav-link">Contact us</a></li>
+                <li>
+                    <a href="<?php echo $navigation_contact_url;?>" class="nav-link">
+                     <?php 
+                        echo elgg_echo('softland:header:navigation:contact');
+                     ?>
+                    </a>
+                </li>
               </ul>
             </nav>
           </div>

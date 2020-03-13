@@ -60,7 +60,7 @@ $logged_user = elgg_get_logged_in_user_entity();
 <meta property="og:description" content="<?php echo $blog->excerpt;?>">
 
 <meta property="og:url" content="<?php echo $site_url;?>posts/view/<?php echo $blog->guid;?>/<?php echo str_replace(' ', '-', $blog->title);?>">
-<meta name="twitter:card" content="<?php echo $blog->excerpt;?>">
+
      
      
  <?php
