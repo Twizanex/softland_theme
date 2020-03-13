@@ -12,8 +12,8 @@ return array(
         'softland:header:navigation:about' => 'About',
         'softland:header:navigation:contact' => 'Contact',
     
+        'softland:ad:widget:title' => 'Sponsors',
         
-    
         'softland:header:blogs:all' => 'All blog posts',
         'softland:header:blogs:description' => 'Useful resources and inspiration for creative programmers',
     

@@ -26,6 +26,7 @@ $f_item_2_link = $vars['entity']->f_item_2_link;
 $f_item_3_title = $vars['entity']->f_item_3_title;
 $f_item_3_desc = $vars['entity']->f_item_3_desc;
 $f_item_3_link = $vars['entity']->f_item_3_link;
+$ad_widget = $vars['entity']->ad_widget;
 
 
 $service_info_1_title = $vars['entity']->service_info_1_title;
@@ -227,6 +228,34 @@ echo elgg_view_input('text', [
                     'value' => $f_item_3_link,
                 ]);
                 ?>
+                
+            </p>
+	</div>
+	<div class="card-actions">
+		
+	</div>
+</div>
+
+     <div class="card">
+	<img src='<?php echo $site_url?>mod/softland_theme/graphics/material-card-small.jpg' class="card-image" />
+	<div class="card-title">
+		 <?php echo elgg_echo('softland:settings:third:features'); ?>
+	</div>
+	<div class="card-desc">
+		
+             <p>
+                
+                
+                 <?php
+	
+                echo elgg_view_input('plaintext', [
+                    'name' => 'params[ad_widget]',
+                    'label' => elgg_echo('softland:ad:widget'),
+                    'value' => $ad_widget,
+                ]);
+                ?>
+                
+                
                 
             </p>
 	</div>

@@ -7,6 +7,7 @@
 $user = elgg_get_page_owner_entity();
 $site = elgg_get_site_entity();
 $site_url = elgg_get_site_url();
+$ad_widget = elgg_get_plugin_setting('ad_widget', 'softland_theme');
 ?>
   <div class="col-md-4 sidebar">
             <div class="sidebar-box">
@@ -65,8 +66,16 @@ $site_url = elgg_get_site_url();
             </div>
 
             <div class="sidebar-box">
-              <h3>Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+              <center>
+                  <h3>
+                  <?php
+                    echo elgg_echo('softland:ad:widget:title');
+                  ?>
+                  </h3>
+                  </center>
+              <p>
+              <?php echo $ad_widget;?>
+              </p>
             </div>
           </div>
         
